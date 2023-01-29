@@ -34,9 +34,8 @@
     "clean": "rm -rf dist lib && rm -rf app/*.js app/*.d.ts app/*.map",
     "build:watch": "npm run build -- -- -w",
     "tsc": "node ./node_modules/typescript/bin/tsc -p",
-    "link": "npm link featurehub-javascript-client-sdk",
     "compile": "npm run build && npm link",
-    "release": "cp ../README.md . && npm run build && npm publish",
+    "release": "npm run build && npm publish",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
