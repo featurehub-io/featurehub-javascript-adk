@@ -1,0 +1,52 @@
+{
+	"name": "featurehub-javascript-admin-sdk",
+	"version": "1.1.10",
+  "description": "FeatureHub NodeJS Admin Development Kit",
+  "author": "info@featurehub.io",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "lib/index.js",
+  "repository": "github:featurehub-io/featurehub-javascript-adk",
+  "files": [
+    "dist/**/*",
+    "lib/**/*",
+    "app/**/*"
+  ],
+  "homepage": "https://featurehub.io",
+  "keywords": [
+    "feature-flag-api",
+    "feature-flag-sdk",
+    "feature-experimentation",
+    "feature-flag",
+    "flag",
+    "toggle",
+    "feature-toggle",
+    "feature-toggle-api",
+    "remote-configuration",
+    "gradual-rollout",
+    "ab-testing",
+    "feature-flag-react",
+    "featurehub"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run clean && npm run tsc tsconfig.json && npm run tsc tsconfig-es.json",
+    "clean": "rm -rf dist lib && rm -rf app/*.js app/*.d.ts app/*.map",
+    "build:watch": "npm run build -- -- -w",
+    "tsc": "node ./node_modules/typescript/bin/tsc -p",
+    "link": "npm link featurehub-javascript-client-sdk",
+    "compile": "npm run build && npm link",
+    "release": "cp ../README.md . && npm run build && npm publish",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^14.18.36",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+		"axios": "^1.2.4"
+	},
+  "engines": {
+		"node": ">=14.0.0"
+  }
+}
