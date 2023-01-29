@@ -24,7 +24,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14.x'
-        working-directory: admin-sdk
       - name: Install dependencies
         run: npm install
         working-directory: admin-sdk
