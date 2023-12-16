@@ -1,0 +1,12 @@
+= Javascript Development Kits
+
+This repository holds the non-client development kits that FeatureHub provide APIs and
+models for. They are generally generated from OpenAPI specs. They consist of:
+
+- The Admin SDK - this represents the API required to talk to the Management Repository (only)
+- The Webhook SDK - this represents the API for receiving messages when a feature has changed or a new environment is updated. It consists of all the feature values and their states for that
+environment. You can use this to build your own webhook receivers and we have another repository
+which uses this SDK which provides a demonstration on how you can trigger downstream uses of
+it when it is transformed into a packet of data the SDK can understand.
+- The Messaging SDK - this is triggered whenever any feature has changed its value. It provides a detailed difference message that can be used to communicate with downstream systems that wish
+to keep track, e.g. Slack/Teams or a bug tracking system wanting to see individual feature states.

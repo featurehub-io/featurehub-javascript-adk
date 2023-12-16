@@ -1,4 +1,4 @@
-name: Build featurehub-javascript-admin-sdk
+name: Build featurehub-javascript-webhooks
 
 # Controls when the action will run.
 on:
@@ -26,7 +26,7 @@ jobs:
           node-version: '18.x'
       - name: Install dependencies
         run: npm install
-        working-directory: admin-sdk
+        working-directory: messaging-sdk
       - name: Build (tests build of commonjs and es6 modules)
         run: npm run build
-        working-directory: admin-sdk
+        working-directory: messaging-sdk
