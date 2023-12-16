@@ -1,4 +1,4 @@
-name: Build featurehub-javascript-webhooks
+name: Build featurehub-javascript-messaging
 
 # Controls when the action will run.
 on:

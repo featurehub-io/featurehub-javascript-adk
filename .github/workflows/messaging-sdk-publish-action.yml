@@ -1,4 +1,4 @@
-name: Publish featurehub-javascript-webhooks package to NPM registry
+name: Publish featurehub-javascript-messaging package to NPM registry
 on:
   workflow_dispatch:
 
