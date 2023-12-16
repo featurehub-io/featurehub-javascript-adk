@@ -1,4 +1,4 @@
-import { WebhookCheck, PersonInfo, WebhookTypeDetail, ApplicationFeatureValues, RoleType, SearchPersonResult, PersonType, ApplicationVersionInfo, PasswordUpdate, TokenizedPerson, Feature, ApplicationGroupRole, PersonRegistrationDetails, ServiceAccountPermission, WebhookSummaryItem, PasswordReset, ProviderRedirect, OrganizationAllOf, StrategyAttributePlatformName, RolloutStrategyFieldType, EnvironmentAllOf, RolloutStrategyAttributeAllOf, GroupAllOf, ResetApiKeyType, StrategyAttributeWellKnownNames, RolloutStrategyValidationResponse, CustomRolloutStrategyViolation, ApplicationAllOf, IdentityProviderInfo, RegistrationUrl, StrategyAttributeCountryName, PersonId, RolloutStrategyAttribute, WebhookTypeDetails, SearchPerson, Environment, FeatureValueType, RolloutStrategyInstance, Application, Person, RolloutStrategyAttributeConditional, Group, ServiceAccount, Organization, RolloutStrategyAllOf, SearchPersonSortBy, CreatePersonDetails, UpdatePerson, WebhookDetail, SetupSiteAdmin, WebhookSummary, RolloutStrategyViolation, RolloutStrategyCollectionViolationType, UpdateEnvironment, RolloutStrategyInfo, StrategyAttributeDeviceName, RolloutStrategyViolationType, EnvironmentFeaturesResult, RolloutStrategyValidationRequest, OutstandingRegistration, Portfolio, SortOrder, HiddenEnvironments, EnvironmentFeatureValues, FeatureEnvironment, FeatureValue, AdminServiceResetTokenResponse, Audit, BaseRolloutStrategy, EnvironmentSortOrder, RolloutStrategy, SharedRolloutStrategyViolation, PortfolioAllOf, UserCredentials, SetupResponse, ApplicationRoleType, EnvironmentGroupRole, SetupMissingResponse, BaseRolloutStrategyAttribute } from './';
+import { FeatureGroupCreate, ApplicationFeatureValues, RoleType, SearchPersonResult, FeatureGroupListGroup, PersonType, ApplicationSummary, ApplicationVersionInfo, Feature, FeatureGroupUpdateFeature, CreateFeature, CreateApplication, WebhookSummaryItem, PasswordReset, ProviderRedirect, EnvironmentAllOf, StrategyAttributeWellKnownNames, UpdateApplicationRolloutStrategy, ApplicationAllOf, RegistrationUrl, StrategyAttributeCountryName, PersonId, SearchPerson, RolloutStrategyInstance, Application, Person, RolloutStrategyAttributeConditional, CacheRefreshRequest, Group, ServiceAccount, Organization, FeatureGroupUpdate, CreatePersonDetails, UpdatePerson, WebhookSummary, RolloutStrategyViolation, BaseStrategy, RolloutStrategyCollectionViolationType, FeatureHistoryList, FeatureGroupList, StrategyAttributeDeviceName, FeatureGroupListFeature, OutstandingRegistration, Portfolio, CreateGroup, UpdateEnvironmentV2, EnvironmentFeatureValues, FeatureValue, AdminServiceResetTokenResponse, Audit, SharedRolloutStrategyViolation, PortfolioAllOf, EnvironmentGroupRole, EnvironmentPermission, WebhookCheck, PersonInfo, WebhookTypeDetail, ApplicationRolloutStrategyList, PasswordUpdate, TokenizedPerson, ApplicationGroupRole, CreateEnvironment, PersonRegistrationDetails, ServiceAccountPermission, CreatePortfolio, ApplicationRolloutStrategy, ThinGroupRolloutStrategy, FeatureHistoryValue, CreateServiceAccount, FeatureGroupFeature, OrganizationAllOf, StrategyAttributePlatformName, RolloutStrategyFieldType, GroupAllOf, ResetApiKeyType, RolloutStrategyValidationResponse, CustomRolloutStrategyViolation, GroupRolloutStrategy, IdentityProviderInfo, ApplicationRolloutStrategyAllOf, RolloutStrategyAttribute, WebhookTypeDetails, Environment, FeatureValueType, FeatureGroup, RolloutStrategyAllOf, SearchPersonSortBy, WebhookDetail, SetupSiteAdmin, FeatureHistoryItem, UpdateEnvironmentV2AllOf, UpdateEnvironment, CreateApplicationRolloutStrategy, RolloutStrategyViolationType, EnvironmentFeaturesResult, RolloutStrategyValidationRequest, CacheRefreshResponse, SortOrder, ApplicationPermissions, HiddenEnvironments, AnemicPerson, FeatureEnvironment, BaseRolloutStrategy, BaseUIStrategy, BaseRolloutStrategyAllOf, EnvironmentSortOrder, RolloutStrategy, UserCredentials, SetupResponse, ApplicationRoleType, SetupMissingResponse } from './';
 
 
 export class AdminServiceResetTokenResponseTypeTransformer {
@@ -24,6 +24,40 @@ public  static fromJsonAsAny(__val: any): any {
   // expect this to be a decoded value
 public   static fromJson(__val: any): AdminServiceResetTokenResponse {
     return new AdminServiceResetTokenResponse(AdminServiceResetTokenResponseTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class AnemicPersonTypeTransformer {
+public static toJson(__val: AnemicPerson): any {
+    const __data: any = {};
+    
+  if (__val.id !== null && __val.id !== undefined) {
+    __data['id'] = __val.id;
+  }
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.type !== null && __val.type !== undefined) {
+    __data['type'] = ObjectSerializer.serialize(__val.type, 'PersonType');
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['id'] = __val['id'];
+    __init['name'] = __val['name'];
+    __init['type'] = ObjectSerializer.deserialize(__val['type'], 'PersonType');
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): AnemicPerson {
+    return new AnemicPerson(AnemicPersonTypeTransformer.fromJsonAsAny(__val));
   }
 }
 
@@ -247,6 +281,36 @@ public   static fromJson(__val: any): ApplicationGroupRole {
   }
 }
 
+export class ApplicationPermissionsTypeTransformer {
+public static toJson(__val: ApplicationPermissions): any {
+    const __data: any = {};
+    
+  if (__val.applicationRoles !== null && __val.applicationRoles !== undefined) {
+    __data['applicationRoles'] = ObjectSerializer.serialize(__val.applicationRoles, 'Array<ApplicationRoleType>');
+  }
+  if (__val.environments !== null && __val.environments !== undefined) {
+    __data['environments'] = ObjectSerializer.serialize(__val.environments, 'Array<EnvironmentPermission>');
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['applicationRoles'] = ObjectSerializer.deserialize(__val['applicationRoles'], 'Array<ApplicationRoleType>');
+    __init['environments'] = ObjectSerializer.deserialize(__val['environments'], 'Array<EnvironmentPermission>');
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): ApplicationPermissions {
+    return new ApplicationPermissions(ApplicationPermissionsTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
 export class ApplicationRoleTypeTypeTransformer {
 public static toJson(__val: ApplicationRoleType): any {
     return __val?.toString();
@@ -265,6 +329,182 @@ public   static fromJson(__val: any): ApplicationRoleType {
     }
 
     return undefined;
+  }
+}
+
+export class ApplicationRolloutStrategyTypeTransformer {
+public static toJson(__val: ApplicationRolloutStrategy): any {
+    const __data: any = {};
+    
+  // inherited fields from BaseStrategy
+  
+  if (__val.percentage !== null && __val.percentage !== undefined) {
+    __data['percentage'] = __val.percentage;
+  }
+  if (__val.percentageAttributes !== null && __val.percentageAttributes !== undefined) {
+    __data['percentageAttributes'] = __val.percentageAttributes;
+  }
+  if (__val.attributes !== null && __val.attributes !== undefined) {
+    __data['attributes'] = ObjectSerializer.serialize(__val.attributes, 'Array<RolloutStrategyAttribute>');
+  }
+
+  // inherited fields from BaseUIStrategy
+  
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.colouring !== null && __val.colouring !== undefined) {
+    __data['colouring'] = __val.colouring;
+  }
+  if (__val.disabled !== null && __val.disabled !== undefined) {
+    __data['disabled'] = __val.disabled;
+  }
+  if (__val.avatar !== null && __val.avatar !== undefined) {
+    __data['avatar'] = __val.avatar;
+  }
+
+  // inherited fields from ApplicationRolloutStrategyAllOf
+  
+  if (__val.id !== null && __val.id !== undefined) {
+    __data['id'] = __val.id;
+  }
+
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+    
+  // inherited fields from BaseStrategy
+      __init['percentage'] = __val['percentage'];
+    __init['percentageAttributes'] = __val['percentageAttributes'];
+    __init['attributes'] = ObjectSerializer.deserialize(__val['attributes'], 'Array<RolloutStrategyAttribute>');
+
+
+  // inherited fields from BaseUIStrategy
+      __init['name'] = __val['name'];
+    __init['colouring'] = __val['colouring'];
+    __init['disabled'] = __val['disabled'];
+    __init['avatar'] = __val['avatar'];
+
+
+  // inherited fields from ApplicationRolloutStrategyAllOf
+      __init['id'] = __val['id'];
+
+
+    
+      
+  
+  
+  
+  
+  
+
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): ApplicationRolloutStrategy {
+    return new ApplicationRolloutStrategy(ApplicationRolloutStrategyTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class ApplicationRolloutStrategyAllOfTypeTransformer {
+public static toJson(__val: ApplicationRolloutStrategyAllOf): any {
+    const __data: any = {};
+    
+  if (__val.id !== null && __val.id !== undefined) {
+    __data['id'] = __val.id;
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['id'] = __val['id'];
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): ApplicationRolloutStrategyAllOf {
+    return new ApplicationRolloutStrategyAllOf(ApplicationRolloutStrategyAllOfTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class ApplicationRolloutStrategyListTypeTransformer {
+public static toJson(__val: ApplicationRolloutStrategyList): any {
+    const __data: any = {};
+    
+  if (__val.max !== null && __val.max !== undefined) {
+    __data['max'] = __val.max;
+  }
+  if (__val.page !== null && __val.page !== undefined) {
+    __data['page'] = __val.page;
+  }
+  if (__val.items !== null && __val.items !== undefined) {
+    __data['items'] = ObjectSerializer.serialize(__val.items, 'Array<ApplicationRolloutStrategy>');
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['max'] = __val['max'];
+    __init['page'] = __val['page'];
+    __init['items'] = ObjectSerializer.deserialize(__val['items'], 'Array<ApplicationRolloutStrategy>');
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): ApplicationRolloutStrategyList {
+    return new ApplicationRolloutStrategyList(ApplicationRolloutStrategyListTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class ApplicationSummaryTypeTransformer {
+public static toJson(__val: ApplicationSummary): any {
+    const __data: any = {};
+    
+  if (__val.groupsHavePermission !== null && __val.groupsHavePermission !== undefined) {
+    __data['groupsHavePermission'] = __val.groupsHavePermission;
+  }
+  if (__val.serviceAccountsHavePermission !== null && __val.serviceAccountsHavePermission !== undefined) {
+    __data['serviceAccountsHavePermission'] = __val.serviceAccountsHavePermission;
+  }
+  if (__val.featureCount !== null && __val.featureCount !== undefined) {
+    __data['featureCount'] = __val.featureCount;
+  }
+  if (__val.environmentCount !== null && __val.environmentCount !== undefined) {
+    __data['environmentCount'] = __val.environmentCount;
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['groupsHavePermission'] = __val['groupsHavePermission'];
+    __init['serviceAccountsHavePermission'] = __val['serviceAccountsHavePermission'];
+    __init['featureCount'] = __val['featureCount'];
+    __init['environmentCount'] = __val['environmentCount'];
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): ApplicationSummary {
+    return new ApplicationSummary(ApplicationSummaryTypeTransformer.fromJsonAsAny(__val));
   }
 }
 
@@ -340,35 +580,47 @@ export class BaseRolloutStrategyTypeTransformer {
 public static toJson(__val: BaseRolloutStrategy): any {
     const __data: any = {};
     
-  if (__val.id !== null && __val.id !== undefined) {
-    __data['id'] = __val.id;
-  }
+  // inherited fields from BaseStrategy
+  
   if (__val.percentage !== null && __val.percentage !== undefined) {
     __data['percentage'] = __val.percentage;
   }
   if (__val.percentageAttributes !== null && __val.percentageAttributes !== undefined) {
     __data['percentageAttributes'] = __val.percentageAttributes;
   }
+  if (__val.attributes !== null && __val.attributes !== undefined) {
+    __data['attributes'] = ObjectSerializer.serialize(__val.attributes, 'Array<RolloutStrategyAttribute>');
+  }
+
+  // inherited fields from BaseRolloutStrategyAllOf
+  
   if (__val.value !== null && __val.value !== undefined) {
     __data['value'] = __val.value;
   }
-  if (__val.attributes !== null && __val.attributes !== undefined) {
-    __data['attributes'] = ObjectSerializer.serialize(__val.attributes, 'Array<BaseRolloutStrategyAttribute>');
-  }
+
 
     return __data;
   }
 
 public  static fromJsonAsAny(__val: any): any {
     const __init: any = {};
-        __init['id'] = __val['id'];
-    __init['percentage'] = __val['percentage'];
+    
+  // inherited fields from BaseStrategy
+      __init['percentage'] = __val['percentage'];
     __init['percentageAttributes'] = __val['percentageAttributes'];
-    __init['value'] = __val['value'];
-    __init['attributes'] = ObjectSerializer.deserialize(__val['attributes'], 'Array<BaseRolloutStrategyAttribute>');
+    __init['attributes'] = ObjectSerializer.deserialize(__val['attributes'], 'Array<RolloutStrategyAttribute>');
+
+
+  // inherited fields from BaseRolloutStrategyAllOf
+      __init['value'] = __val['value'];
+
 
     
-    
+      
+  
+  
+  
+
 
     return __init;
 }
@@ -378,21 +630,12 @@ public   static fromJson(__val: any): BaseRolloutStrategy {
   }
 }
 
-export class BaseRolloutStrategyAttributeTypeTransformer {
-public static toJson(__val: BaseRolloutStrategyAttribute): any {
+export class BaseRolloutStrategyAllOfTypeTransformer {
+public static toJson(__val: BaseRolloutStrategyAllOf): any {
     const __data: any = {};
     
-  if (__val.conditional !== null && __val.conditional !== undefined) {
-    __data['conditional'] = ObjectSerializer.serialize(__val.conditional, 'RolloutStrategyAttributeConditional');
-  }
-  if (__val.fieldName !== null && __val.fieldName !== undefined) {
-    __data['fieldName'] = __val.fieldName;
-  }
-  if (__val.values !== null && __val.values !== undefined) {
-    __data['values'] = __val.values;
-  }
-  if (__val.type !== null && __val.type !== undefined) {
-    __data['type'] = ObjectSerializer.serialize(__val.type, 'RolloutStrategyFieldType');
+  if (__val.value !== null && __val.value !== undefined) {
+    __data['value'] = __val.value;
   }
 
     return __data;
@@ -400,10 +643,7 @@ public static toJson(__val: BaseRolloutStrategyAttribute): any {
 
 public  static fromJsonAsAny(__val: any): any {
     const __init: any = {};
-        __init['conditional'] = ObjectSerializer.deserialize(__val['conditional'], 'RolloutStrategyAttributeConditional');
-    __init['fieldName'] = __val['fieldName'];
-    __init['values'] = __val['values'];
-    __init['type'] = ObjectSerializer.deserialize(__val['type'], 'RolloutStrategyFieldType');
+        __init['value'] = __val['value'];
 
     
     
@@ -411,8 +651,394 @@ public  static fromJsonAsAny(__val: any): any {
     return __init;
 }
   // expect this to be a decoded value
-public   static fromJson(__val: any): BaseRolloutStrategyAttribute {
-    return new BaseRolloutStrategyAttribute(BaseRolloutStrategyAttributeTypeTransformer.fromJsonAsAny(__val));
+public   static fromJson(__val: any): BaseRolloutStrategyAllOf {
+    return new BaseRolloutStrategyAllOf(BaseRolloutStrategyAllOfTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class BaseStrategyTypeTransformer {
+public static toJson(__val: BaseStrategy): any {
+    const __data: any = {};
+    
+  if (__val.percentage !== null && __val.percentage !== undefined) {
+    __data['percentage'] = __val.percentage;
+  }
+  if (__val.percentageAttributes !== null && __val.percentageAttributes !== undefined) {
+    __data['percentageAttributes'] = __val.percentageAttributes;
+  }
+  if (__val.attributes !== null && __val.attributes !== undefined) {
+    __data['attributes'] = ObjectSerializer.serialize(__val.attributes, 'Array<RolloutStrategyAttribute>');
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['percentage'] = __val['percentage'];
+    __init['percentageAttributes'] = __val['percentageAttributes'];
+    __init['attributes'] = ObjectSerializer.deserialize(__val['attributes'], 'Array<RolloutStrategyAttribute>');
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): BaseStrategy {
+    return new BaseStrategy(BaseStrategyTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class BaseUIStrategyTypeTransformer {
+public static toJson(__val: BaseUIStrategy): any {
+    const __data: any = {};
+    
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.colouring !== null && __val.colouring !== undefined) {
+    __data['colouring'] = __val.colouring;
+  }
+  if (__val.disabled !== null && __val.disabled !== undefined) {
+    __data['disabled'] = __val.disabled;
+  }
+  if (__val.avatar !== null && __val.avatar !== undefined) {
+    __data['avatar'] = __val.avatar;
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['name'] = __val['name'];
+    __init['colouring'] = __val['colouring'];
+    __init['disabled'] = __val['disabled'];
+    __init['avatar'] = __val['avatar'];
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): BaseUIStrategy {
+    return new BaseUIStrategy(BaseUIStrategyTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class CacheRefreshRequestTypeTransformer {
+public static toJson(__val: CacheRefreshRequest): any {
+    const __data: any = {};
+    
+  if (__val.allTheThings !== null && __val.allTheThings !== undefined) {
+    __data['allTheThings'] = __val.allTheThings;
+  }
+  if (__val.applicationId !== null && __val.applicationId !== undefined) {
+    __data['applicationId'] = __val.applicationId;
+  }
+  if (__val.portfolioId !== null && __val.portfolioId !== undefined) {
+    __data['portfolioId'] = __val.portfolioId;
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['allTheThings'] = __val['allTheThings'];
+    __init['applicationId'] = __val['applicationId'];
+    __init['portfolioId'] = __val['portfolioId'];
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): CacheRefreshRequest {
+    return new CacheRefreshRequest(CacheRefreshRequestTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class CacheRefreshResponseTypeTransformer {
+public static toJson(__val: CacheRefreshResponse): any {
+    const __data: any = {};
+    
+  if (__val.applicationsRefreshed !== null && __val.applicationsRefreshed !== undefined) {
+    __data['applicationsRefreshed'] = __val.applicationsRefreshed;
+  }
+  if (__val.portfoliosRefreshed !== null && __val.portfoliosRefreshed !== undefined) {
+    __data['portfoliosRefreshed'] = __val.portfoliosRefreshed;
+  }
+  if (__val.environmentsRefreshed !== null && __val.environmentsRefreshed !== undefined) {
+    __data['environmentsRefreshed'] = __val.environmentsRefreshed;
+  }
+  if (__val.serviceAccountsRefreshed !== null && __val.serviceAccountsRefreshed !== undefined) {
+    __data['serviceAccountsRefreshed'] = __val.serviceAccountsRefreshed;
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['applicationsRefreshed'] = __val['applicationsRefreshed'];
+    __init['portfoliosRefreshed'] = __val['portfoliosRefreshed'];
+    __init['environmentsRefreshed'] = __val['environmentsRefreshed'];
+    __init['serviceAccountsRefreshed'] = __val['serviceAccountsRefreshed'];
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): CacheRefreshResponse {
+    return new CacheRefreshResponse(CacheRefreshResponseTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class CreateApplicationTypeTransformer {
+public static toJson(__val: CreateApplication): any {
+    const __data: any = {};
+    
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.description !== null && __val.description !== undefined) {
+    __data['description'] = __val.description;
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['name'] = __val['name'];
+    __init['description'] = __val['description'];
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): CreateApplication {
+    return new CreateApplication(CreateApplicationTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class CreateApplicationRolloutStrategyTypeTransformer {
+public static toJson(__val: CreateApplicationRolloutStrategy): any {
+    const __data: any = {};
+    
+  // inherited fields from BaseUIStrategy
+  
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.colouring !== null && __val.colouring !== undefined) {
+    __data['colouring'] = __val.colouring;
+  }
+  if (__val.disabled !== null && __val.disabled !== undefined) {
+    __data['disabled'] = __val.disabled;
+  }
+  if (__val.avatar !== null && __val.avatar !== undefined) {
+    __data['avatar'] = __val.avatar;
+  }
+
+  // inherited fields from BaseStrategy
+  
+  if (__val.percentage !== null && __val.percentage !== undefined) {
+    __data['percentage'] = __val.percentage;
+  }
+  if (__val.percentageAttributes !== null && __val.percentageAttributes !== undefined) {
+    __data['percentageAttributes'] = __val.percentageAttributes;
+  }
+  if (__val.attributes !== null && __val.attributes !== undefined) {
+    __data['attributes'] = ObjectSerializer.serialize(__val.attributes, 'Array<RolloutStrategyAttribute>');
+  }
+
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+    
+  // inherited fields from BaseUIStrategy
+      __init['name'] = __val['name'];
+    __init['colouring'] = __val['colouring'];
+    __init['disabled'] = __val['disabled'];
+    __init['avatar'] = __val['avatar'];
+
+
+  // inherited fields from BaseStrategy
+      __init['percentage'] = __val['percentage'];
+    __init['percentageAttributes'] = __val['percentageAttributes'];
+    __init['attributes'] = ObjectSerializer.deserialize(__val['attributes'], 'Array<RolloutStrategyAttribute>');
+
+
+    
+      
+  
+  
+  
+
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): CreateApplicationRolloutStrategy {
+    return new CreateApplicationRolloutStrategy(CreateApplicationRolloutStrategyTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class CreateEnvironmentTypeTransformer {
+public static toJson(__val: CreateEnvironment): any {
+    const __data: any = {};
+    
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.priorEnvironmentId !== null && __val.priorEnvironmentId !== undefined) {
+    __data['priorEnvironmentId'] = __val.priorEnvironmentId;
+  }
+  if (__val.description !== null && __val.description !== undefined) {
+    __data['description'] = __val.description;
+  }
+  if (__val.environmentInfo !== null && __val.environmentInfo !== undefined) {
+    const __p: any = {};
+    for(let __prop in __val.environmentInfo) {
+    if (__val.environmentInfo.hasOwnProperty(__prop)) {
+    __p[ObjectSerializer.serialize(__prop, 'string')] = __val.environmentInfo[__prop];
+    }
+    __data['environmentInfo'] = __p;
+    }
+  }
+  if (__val.production !== null && __val.production !== undefined) {
+    __data['production'] = __val.production;
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['name'] = __val['name'];
+    __init['priorEnvironmentId'] = __val['priorEnvironmentId'];
+    __init['description'] = __val['description'];
+    __init['production'] = __val['production'];
+
+    
+      if (__val['environmentInfo']) {
+    const __data: any = {};
+    const __valData = __val['environmentInfo'];
+    for(let __prop in __valData) {
+      if (__valData.hasOwnProperty(__prop)) {
+        __data[ObjectSerializer.deserialize(__prop, 'string')] = __val[__prop];
+      }
+    }
+
+    __init['environmentInfo'] = __data;
+  }
+
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): CreateEnvironment {
+    return new CreateEnvironment(CreateEnvironmentTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class CreateFeatureTypeTransformer {
+public static toJson(__val: CreateFeature): any {
+    const __data: any = {};
+    
+  if (__val.key !== null && __val.key !== undefined) {
+    __data['key'] = __val.key;
+  }
+  if (__val.alias !== null && __val.alias !== undefined) {
+    __data['alias'] = __val.alias;
+  }
+  if (__val.link !== null && __val.link !== undefined) {
+    __data['link'] = __val.link;
+  }
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.valueType !== null && __val.valueType !== undefined) {
+    __data['valueType'] = ObjectSerializer.serialize(__val.valueType, 'FeatureValueType');
+  }
+  if (__val.secret !== null && __val.secret !== undefined) {
+    __data['secret'] = __val.secret;
+  }
+  if (__val.description !== null && __val.description !== undefined) {
+    __data['description'] = __val.description;
+  }
+  if (__val.metaData !== null && __val.metaData !== undefined) {
+    __data['metaData'] = __val.metaData;
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['key'] = __val['key'];
+    __init['alias'] = __val['alias'];
+    __init['link'] = __val['link'];
+    __init['name'] = __val['name'];
+    __init['valueType'] = ObjectSerializer.deserialize(__val['valueType'], 'FeatureValueType');
+    __init['secret'] = __val['secret'];
+    __init['description'] = __val['description'];
+    __init['metaData'] = __val['metaData'];
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): CreateFeature {
+    return new CreateFeature(CreateFeatureTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class CreateGroupTypeTransformer {
+public static toJson(__val: CreateGroup): any {
+    const __data: any = {};
+    
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.admin !== null && __val.admin !== undefined) {
+    __data['admin'] = __val.admin;
+  }
+  if (__val.applicationRoles !== null && __val.applicationRoles !== undefined) {
+    __data['applicationRoles'] = ObjectSerializer.serialize(__val.applicationRoles, 'Array<ApplicationGroupRole>');
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['name'] = __val['name'];
+    __init['admin'] = __val['admin'];
+    __init['applicationRoles'] = ObjectSerializer.deserialize(__val['applicationRoles'], 'Array<ApplicationGroupRole>');
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): CreateGroup {
+    return new CreateGroup(CreateGroupTypeTransformer.fromJsonAsAny(__val));
   }
 }
 
@@ -451,6 +1077,70 @@ public  static fromJsonAsAny(__val: any): any {
   // expect this to be a decoded value
 public   static fromJson(__val: any): CreatePersonDetails {
     return new CreatePersonDetails(CreatePersonDetailsTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class CreatePortfolioTypeTransformer {
+public static toJson(__val: CreatePortfolio): any {
+    const __data: any = {};
+    
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.description !== null && __val.description !== undefined) {
+    __data['description'] = __val.description;
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['name'] = __val['name'];
+    __init['description'] = __val['description'];
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): CreatePortfolio {
+    return new CreatePortfolio(CreatePortfolioTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class CreateServiceAccountTypeTransformer {
+public static toJson(__val: CreateServiceAccount): any {
+    const __data: any = {};
+    
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.description !== null && __val.description !== undefined) {
+    __data['description'] = __val.description;
+  }
+  if (__val.permissions !== null && __val.permissions !== undefined) {
+    __data['permissions'] = ObjectSerializer.serialize(__val.permissions, 'Array<ServiceAccountPermission>');
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['name'] = __val['name'];
+    __init['description'] = __val['description'];
+    __init['permissions'] = ObjectSerializer.deserialize(__val['permissions'], 'Array<ServiceAccountPermission>');
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): CreateServiceAccount {
+    return new CreateServiceAccount(CreateServiceAccountTypeTransformer.fromJsonAsAny(__val));
   }
 }
 
@@ -541,6 +1231,15 @@ public static toJson(__val: Environment): any {
     __data['environmentInfo'] = __p;
     }
   }
+  if (__val.webhookEnvironmentInfo !== null && __val.webhookEnvironmentInfo !== undefined) {
+    const __p: any = {};
+    for(let __prop in __val.webhookEnvironmentInfo) {
+    if (__val.webhookEnvironmentInfo.hasOwnProperty(__prop)) {
+    __p[ObjectSerializer.serialize(__prop, 'string')] = __val.webhookEnvironmentInfo[__prop];
+    }
+    __data['webhookEnvironmentInfo'] = __p;
+    }
+  }
   if (__val.serviceAccountPermission !== null && __val.serviceAccountPermission !== undefined) {
     __data['serviceAccountPermission'] = ObjectSerializer.serialize(__val.serviceAccountPermission, 'Array<ServiceAccountPermission>');
   }
@@ -590,6 +1289,17 @@ public  static fromJsonAsAny(__val: any): any {
     }
 
     __init['environmentInfo'] = __data;
+  }
+  if (__val['webhookEnvironmentInfo']) {
+    const __data: any = {};
+    const __valData = __val['webhookEnvironmentInfo'];
+    for(let __prop in __valData) {
+      if (__valData.hasOwnProperty(__prop)) {
+        __data[ObjectSerializer.deserialize(__prop, 'string')] = __val[__prop];
+      }
+    }
+
+    __init['webhookEnvironmentInfo'] = __data;
   }
 
 
@@ -642,6 +1352,15 @@ public static toJson(__val: EnvironmentAllOf): any {
     __data['environmentInfo'] = __p;
     }
   }
+  if (__val.webhookEnvironmentInfo !== null && __val.webhookEnvironmentInfo !== undefined) {
+    const __p: any = {};
+    for(let __prop in __val.webhookEnvironmentInfo) {
+    if (__val.webhookEnvironmentInfo.hasOwnProperty(__prop)) {
+    __p[ObjectSerializer.serialize(__prop, 'string')] = __val.webhookEnvironmentInfo[__prop];
+    }
+    __data['webhookEnvironmentInfo'] = __p;
+    }
+  }
   if (__val.serviceAccountPermission !== null && __val.serviceAccountPermission !== undefined) {
     __data['serviceAccountPermission'] = ObjectSerializer.serialize(__val.serviceAccountPermission, 'Array<ServiceAccountPermission>');
   }
@@ -677,6 +1396,17 @@ public  static fromJsonAsAny(__val: any): any {
     }
 
     __init['environmentInfo'] = __data;
+  }
+  if (__val['webhookEnvironmentInfo']) {
+    const __data: any = {};
+    const __valData = __val['webhookEnvironmentInfo'];
+    for(let __prop in __valData) {
+      if (__valData.hasOwnProperty(__prop)) {
+        __data[ObjectSerializer.deserialize(__prop, 'string')] = __val[__prop];
+      }
+    }
+
+    __init['webhookEnvironmentInfo'] = __data;
   }
 
 
@@ -799,6 +1529,40 @@ public  static fromJsonAsAny(__val: any): any {
   // expect this to be a decoded value
 public   static fromJson(__val: any): EnvironmentGroupRole {
     return new EnvironmentGroupRole(EnvironmentGroupRoleTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class EnvironmentPermissionTypeTransformer {
+public static toJson(__val: EnvironmentPermission): any {
+    const __data: any = {};
+    
+  if (__val.id !== null && __val.id !== undefined) {
+    __data['id'] = __val.id;
+  }
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.roles !== null && __val.roles !== undefined) {
+    __data['roles'] = ObjectSerializer.serialize(__val.roles, 'Array<RoleType>');
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['id'] = __val['id'];
+    __init['name'] = __val['name'];
+    __init['roles'] = ObjectSerializer.deserialize(__val['roles'], 'Array<RoleType>');
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): EnvironmentPermission {
+    return new EnvironmentPermission(EnvironmentPermissionTypeTransformer.fromJsonAsAny(__val));
   }
 }
 
@@ -927,6 +1691,476 @@ public   static fromJson(__val: any): FeatureEnvironment {
   }
 }
 
+export class FeatureGroupTypeTransformer {
+public static toJson(__val: FeatureGroup): any {
+    const __data: any = {};
+    
+  if (__val.id !== null && __val.id !== undefined) {
+    __data['id'] = __val.id;
+  }
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.order !== null && __val.order !== undefined) {
+    __data['order'] = __val.order;
+  }
+  if (__val.description !== null && __val.description !== undefined) {
+    __data['description'] = __val.description;
+  }
+  if (__val.version !== null && __val.version !== undefined) {
+    __data['version'] = __val.version;
+  }
+  if (__val.environmentId !== null && __val.environmentId !== undefined) {
+    __data['environmentId'] = __val.environmentId;
+  }
+  if (__val.environmentName !== null && __val.environmentName !== undefined) {
+    __data['environmentName'] = __val.environmentName;
+  }
+  if (__val.disabled !== null && __val.disabled !== undefined) {
+    __data['disabled'] = __val.disabled;
+  }
+  if (__val.features !== null && __val.features !== undefined) {
+    __data['features'] = ObjectSerializer.serialize(__val.features, 'Array<FeatureGroupFeature>');
+  }
+  if (__val.strategies !== null && __val.strategies !== undefined) {
+    __data['strategies'] = ObjectSerializer.serialize(__val.strategies, 'Array<GroupRolloutStrategy>');
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['id'] = __val['id'];
+    __init['name'] = __val['name'];
+    __init['order'] = __val['order'];
+    __init['description'] = __val['description'];
+    __init['version'] = __val['version'];
+    __init['environmentId'] = __val['environmentId'];
+    __init['environmentName'] = __val['environmentName'];
+    __init['disabled'] = __val['disabled'];
+    __init['features'] = ObjectSerializer.deserialize(__val['features'], 'Array<FeatureGroupFeature>');
+    __init['strategies'] = ObjectSerializer.deserialize(__val['strategies'], 'Array<GroupRolloutStrategy>');
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): FeatureGroup {
+    return new FeatureGroup(FeatureGroupTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class FeatureGroupCreateTypeTransformer {
+public static toJson(__val: FeatureGroupCreate): any {
+    const __data: any = {};
+    
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.description !== null && __val.description !== undefined) {
+    __data['description'] = __val.description;
+  }
+  if (__val.environmentId !== null && __val.environmentId !== undefined) {
+    __data['environmentId'] = __val.environmentId;
+  }
+  if (__val.disabled !== null && __val.disabled !== undefined) {
+    __data['disabled'] = __val.disabled;
+  }
+  if (__val.features !== null && __val.features !== undefined) {
+    __data['features'] = ObjectSerializer.serialize(__val.features, 'Array<FeatureGroupUpdateFeature>');
+  }
+  if (__val.strategies !== null && __val.strategies !== undefined) {
+    __data['strategies'] = ObjectSerializer.serialize(__val.strategies, 'Array<GroupRolloutStrategy>');
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['name'] = __val['name'];
+    __init['description'] = __val['description'];
+    __init['environmentId'] = __val['environmentId'];
+    __init['disabled'] = __val['disabled'];
+    __init['features'] = ObjectSerializer.deserialize(__val['features'], 'Array<FeatureGroupUpdateFeature>');
+    __init['strategies'] = ObjectSerializer.deserialize(__val['strategies'], 'Array<GroupRolloutStrategy>');
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): FeatureGroupCreate {
+    return new FeatureGroupCreate(FeatureGroupCreateTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class FeatureGroupFeatureTypeTransformer {
+public static toJson(__val: FeatureGroupFeature): any {
+    const __data: any = {};
+    
+  if (__val.id !== null && __val.id !== undefined) {
+    __data['id'] = __val.id;
+  }
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.key !== null && __val.key !== undefined) {
+    __data['key'] = __val.key;
+  }
+  if (__val.value !== null && __val.value !== undefined) {
+    __data['value'] = __val.value;
+  }
+  if (__val.type !== null && __val.type !== undefined) {
+    __data['type'] = ObjectSerializer.serialize(__val.type, 'FeatureValueType');
+  }
+  if (__val.locked !== null && __val.locked !== undefined) {
+    __data['locked'] = __val.locked;
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['id'] = __val['id'];
+    __init['name'] = __val['name'];
+    __init['key'] = __val['key'];
+    __init['value'] = __val['value'];
+    __init['type'] = ObjectSerializer.deserialize(__val['type'], 'FeatureValueType');
+    __init['locked'] = __val['locked'];
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): FeatureGroupFeature {
+    return new FeatureGroupFeature(FeatureGroupFeatureTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class FeatureGroupListTypeTransformer {
+public static toJson(__val: FeatureGroupList): any {
+    const __data: any = {};
+    
+  if (__val.count !== null && __val.count !== undefined) {
+    __data['count'] = __val.count;
+  }
+  if (__val.featureGroups !== null && __val.featureGroups !== undefined) {
+    __data['featureGroups'] = ObjectSerializer.serialize(__val.featureGroups, 'Array<FeatureGroupListGroup>');
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['count'] = __val['count'];
+    __init['featureGroups'] = ObjectSerializer.deserialize(__val['featureGroups'], 'Array<FeatureGroupListGroup>');
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): FeatureGroupList {
+    return new FeatureGroupList(FeatureGroupListTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class FeatureGroupListFeatureTypeTransformer {
+public static toJson(__val: FeatureGroupListFeature): any {
+    const __data: any = {};
+    
+  if (__val.key !== null && __val.key !== undefined) {
+    __data['key'] = __val.key;
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['key'] = __val['key'];
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): FeatureGroupListFeature {
+    return new FeatureGroupListFeature(FeatureGroupListFeatureTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class FeatureGroupListGroupTypeTransformer {
+public static toJson(__val: FeatureGroupListGroup): any {
+    const __data: any = {};
+    
+  if (__val.id !== null && __val.id !== undefined) {
+    __data['id'] = __val.id;
+  }
+  if (__val.order !== null && __val.order !== undefined) {
+    __data['order'] = __val.order;
+  }
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.description !== null && __val.description !== undefined) {
+    __data['description'] = __val.description;
+  }
+  if (__val.environmentName !== null && __val.environmentName !== undefined) {
+    __data['environmentName'] = __val.environmentName;
+  }
+  if (__val.environmentId !== null && __val.environmentId !== undefined) {
+    __data['environmentId'] = __val.environmentId;
+  }
+  if (__val.version !== null && __val.version !== undefined) {
+    __data['version'] = __val.version;
+  }
+  if (__val.hasStrategy !== null && __val.hasStrategy !== undefined) {
+    __data['hasStrategy'] = __val.hasStrategy;
+  }
+  if (__val.features !== null && __val.features !== undefined) {
+    __data['features'] = ObjectSerializer.serialize(__val.features, 'Array<FeatureGroupListFeature>');
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['id'] = __val['id'];
+    __init['order'] = __val['order'];
+    __init['name'] = __val['name'];
+    __init['description'] = __val['description'];
+    __init['environmentName'] = __val['environmentName'];
+    __init['environmentId'] = __val['environmentId'];
+    __init['version'] = __val['version'];
+    __init['hasStrategy'] = __val['hasStrategy'];
+    __init['features'] = ObjectSerializer.deserialize(__val['features'], 'Array<FeatureGroupListFeature>');
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): FeatureGroupListGroup {
+    return new FeatureGroupListGroup(FeatureGroupListGroupTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class FeatureGroupUpdateTypeTransformer {
+public static toJson(__val: FeatureGroupUpdate): any {
+    const __data: any = {};
+    
+  if (__val.id !== null && __val.id !== undefined) {
+    __data['id'] = __val.id;
+  }
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.description !== null && __val.description !== undefined) {
+    __data['description'] = __val.description;
+  }
+  if (__val.features !== null && __val.features !== undefined) {
+    __data['features'] = ObjectSerializer.serialize(__val.features, 'Array<FeatureGroupUpdateFeature>');
+  }
+  if (__val.strategies !== null && __val.strategies !== undefined) {
+    __data['strategies'] = ObjectSerializer.serialize(__val.strategies, 'Array<GroupRolloutStrategy>');
+  }
+  if (__val.order !== null && __val.order !== undefined) {
+    __data['order'] = __val.order;
+  }
+  if (__val.version !== null && __val.version !== undefined) {
+    __data['version'] = __val.version;
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['id'] = __val['id'];
+    __init['name'] = __val['name'];
+    __init['description'] = __val['description'];
+    __init['features'] = ObjectSerializer.deserialize(__val['features'], 'Array<FeatureGroupUpdateFeature>');
+    __init['strategies'] = ObjectSerializer.deserialize(__val['strategies'], 'Array<GroupRolloutStrategy>');
+    __init['order'] = __val['order'];
+    __init['version'] = __val['version'];
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): FeatureGroupUpdate {
+    return new FeatureGroupUpdate(FeatureGroupUpdateTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class FeatureGroupUpdateFeatureTypeTransformer {
+public static toJson(__val: FeatureGroupUpdateFeature): any {
+    const __data: any = {};
+    
+  if (__val.id !== null && __val.id !== undefined) {
+    __data['id'] = __val.id;
+  }
+  if (__val.value !== null && __val.value !== undefined) {
+    __data['value'] = __val.value;
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['id'] = __val['id'];
+    __init['value'] = __val['value'];
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): FeatureGroupUpdateFeature {
+    return new FeatureGroupUpdateFeature(FeatureGroupUpdateFeatureTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class FeatureHistoryItemTypeTransformer {
+public static toJson(__val: FeatureHistoryItem): any {
+    const __data: any = {};
+    
+  if (__val.envId !== null && __val.envId !== undefined) {
+    __data['envId'] = __val.envId;
+  }
+  if (__val.featureValueId !== null && __val.featureValueId !== undefined) {
+    __data['featureValueId'] = __val.featureValueId;
+  }
+  if (__val.featureId !== null && __val.featureId !== undefined) {
+    __data['featureId'] = __val.featureId;
+  }
+  if (__val.history !== null && __val.history !== undefined) {
+    __data['history'] = ObjectSerializer.serialize(__val.history, 'Array<FeatureHistoryValue>');
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['envId'] = __val['envId'];
+    __init['featureValueId'] = __val['featureValueId'];
+    __init['featureId'] = __val['featureId'];
+    __init['history'] = ObjectSerializer.deserialize(__val['history'], 'Array<FeatureHistoryValue>');
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): FeatureHistoryItem {
+    return new FeatureHistoryItem(FeatureHistoryItemTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class FeatureHistoryListTypeTransformer {
+public static toJson(__val: FeatureHistoryList): any {
+    const __data: any = {};
+    
+  if (__val.max !== null && __val.max !== undefined) {
+    __data['max'] = __val.max;
+  }
+  if (__val.items !== null && __val.items !== undefined) {
+    __data['items'] = ObjectSerializer.serialize(__val.items, 'Array<FeatureHistoryItem>');
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['max'] = __val['max'];
+    __init['items'] = ObjectSerializer.deserialize(__val['items'], 'Array<FeatureHistoryItem>');
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): FeatureHistoryList {
+    return new FeatureHistoryList(FeatureHistoryListTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class FeatureHistoryValueTypeTransformer {
+public static toJson(__val: FeatureHistoryValue): any {
+    const __data: any = {};
+    
+  if (__val.version !== null && __val.version !== undefined) {
+    __data['version'] = __val.version;
+  }
+  if (__val.versionFrom !== null && __val.versionFrom !== undefined) {
+    __data['versionFrom'] = __val.versionFrom;
+  }
+  if (__val.when !== null && __val.when !== undefined) {
+    __data['when'] = ObjectSerializer.serialize(__val.when, 'date-time');
+  }
+  if (__val.who !== null && __val.who !== undefined) {
+    __data['who'] = ObjectSerializer.serialize(__val.who, 'AnemicPerson');
+  }
+  if (__val.value !== null && __val.value !== undefined) {
+    __data['value'] = __val.value;
+  }
+  if (__val.locked !== null && __val.locked !== undefined) {
+    __data['locked'] = __val.locked;
+  }
+  if (__val.retired !== null && __val.retired !== undefined) {
+    __data['retired'] = __val.retired;
+  }
+  if (__val.rolloutStrategies !== null && __val.rolloutStrategies !== undefined) {
+    __data['rolloutStrategies'] = ObjectSerializer.serialize(__val.rolloutStrategies, 'Array<RolloutStrategy>');
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['version'] = __val['version'];
+    __init['versionFrom'] = __val['versionFrom'];
+    __init['when'] = ObjectSerializer.deserialize(__val['when'], 'date-time');
+    __init['who'] = ObjectSerializer.deserialize(__val['who'], 'AnemicPerson');
+    __init['value'] = __val['value'];
+    __init['locked'] = __val['locked'];
+    __init['retired'] = __val['retired'];
+    __init['rolloutStrategies'] = ObjectSerializer.deserialize(__val['rolloutStrategies'], 'Array<RolloutStrategy>');
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): FeatureHistoryValue {
+    return new FeatureHistoryValue(FeatureHistoryValueTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
 export class FeatureValueTypeTransformer {
 public static toJson(__val: FeatureValue): any {
     const __data: any = {};
@@ -939,6 +2173,9 @@ public static toJson(__val: FeatureValue): any {
   }
   if (__val.locked !== null && __val.locked !== undefined) {
     __data['locked'] = __val.locked;
+  }
+  if (__val.value !== null && __val.value !== undefined) {
+    __data['value'] = __val.value;
   }
   if (__val.valueString !== null && __val.valueString !== undefined) {
     __data['valueString'] = __val.valueString;
@@ -964,6 +2201,9 @@ public static toJson(__val: FeatureValue): any {
   if (__val.sharedRolloutStrategies !== null && __val.sharedRolloutStrategies !== undefined) {
     __data['sharedRolloutStrategies'] = ObjectSerializer.serialize(__val.sharedRolloutStrategies, 'Array<RolloutStrategy>');
   }
+  if (__val.featureGroupStrategies !== null && __val.featureGroupStrategies !== undefined) {
+    __data['featureGroupStrategies'] = ObjectSerializer.serialize(__val.featureGroupStrategies, 'Array<ThinGroupRolloutStrategy>');
+  }
   if (__val.environmentId !== null && __val.environmentId !== undefined) {
     __data['environmentId'] = __val.environmentId;
   }
@@ -988,6 +2228,7 @@ public  static fromJsonAsAny(__val: any): any {
         __init['id'] = __val['id'];
     __init['key'] = __val['key'];
     __init['locked'] = __val['locked'];
+    __init['value'] = __val['value'];
     __init['valueString'] = __val['valueString'];
     __init['valueNumber'] = __val['valueNumber'];
     __init['valueBoolean'] = __val['valueBoolean'];
@@ -996,6 +2237,7 @@ public  static fromJsonAsAny(__val: any): any {
     __init['rolloutStrategyInstances'] = ObjectSerializer.deserialize(__val['rolloutStrategyInstances'], 'Array<RolloutStrategyInstance>');
     __init['rolloutStrategies'] = ObjectSerializer.deserialize(__val['rolloutStrategies'], 'Array<RolloutStrategy>');
     __init['sharedRolloutStrategies'] = ObjectSerializer.deserialize(__val['sharedRolloutStrategies'], 'Array<RolloutStrategy>');
+    __init['featureGroupStrategies'] = ObjectSerializer.deserialize(__val['featureGroupStrategies'], 'Array<ThinGroupRolloutStrategy>');
     __init['environmentId'] = __val['environmentId'];
     __init['version'] = __val['version'];
     __init['whoUpdated'] = ObjectSerializer.deserialize(__val['whoUpdated'], 'Person');
@@ -1192,10 +2434,91 @@ public   static fromJson(__val: any): GroupAllOf {
   }
 }
 
+export class GroupRolloutStrategyTypeTransformer {
+public static toJson(__val: GroupRolloutStrategy): any {
+    const __data: any = {};
+    
+  // inherited fields from BaseUIStrategy
+  
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.colouring !== null && __val.colouring !== undefined) {
+    __data['colouring'] = __val.colouring;
+  }
+  if (__val.disabled !== null && __val.disabled !== undefined) {
+    __data['disabled'] = __val.disabled;
+  }
+  if (__val.avatar !== null && __val.avatar !== undefined) {
+    __data['avatar'] = __val.avatar;
+  }
+
+  // inherited fields from BaseStrategy
+  
+  if (__val.percentage !== null && __val.percentage !== undefined) {
+    __data['percentage'] = __val.percentage;
+  }
+  if (__val.percentageAttributes !== null && __val.percentageAttributes !== undefined) {
+    __data['percentageAttributes'] = __val.percentageAttributes;
+  }
+  if (__val.attributes !== null && __val.attributes !== undefined) {
+    __data['attributes'] = ObjectSerializer.serialize(__val.attributes, 'Array<RolloutStrategyAttribute>');
+  }
+
+  // inherited fields from RolloutStrategyAllOf
+  
+  if (__val.id !== null && __val.id !== undefined) {
+    __data['id'] = __val.id;
+  }
+
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+    
+  // inherited fields from BaseUIStrategy
+      __init['name'] = __val['name'];
+    __init['colouring'] = __val['colouring'];
+    __init['disabled'] = __val['disabled'];
+    __init['avatar'] = __val['avatar'];
+
+
+  // inherited fields from BaseStrategy
+      __init['percentage'] = __val['percentage'];
+    __init['percentageAttributes'] = __val['percentageAttributes'];
+    __init['attributes'] = ObjectSerializer.deserialize(__val['attributes'], 'Array<RolloutStrategyAttribute>');
+
+
+  // inherited fields from RolloutStrategyAllOf
+      __init['id'] = __val['id'];
+
+
+    
+      
+  
+  
+  
+  
+  
+
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): GroupRolloutStrategy {
+    return new GroupRolloutStrategy(GroupRolloutStrategyTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
 export class HiddenEnvironmentsTypeTransformer {
 public static toJson(__val: HiddenEnvironments): any {
     const __data: any = {};
     
+  if (__val.noneSelected !== null && __val.noneSelected !== undefined) {
+    __data['noneSelected'] = __val.noneSelected;
+  }
   if (__val.environmentIds !== null && __val.environmentIds !== undefined) {
     __data['environmentIds'] = __val.environmentIds;
   }
@@ -1205,7 +2528,8 @@ public static toJson(__val: HiddenEnvironments): any {
 
 public  static fromJsonAsAny(__val: any): any {
     const __init: any = {};
-        __init['environmentIds'] = __val['environmentIds'];
+        __init['noneSelected'] = __val['noneSelected'];
+    __init['environmentIds'] = __val['environmentIds'];
 
     
     
@@ -1671,6 +2995,8 @@ public   static fromJson(__val: any): PersonType {
           return PersonType.Person;
         case 'serviceAccount':
           return PersonType.ServiceAccount;
+        case 'sdkServiceAccount':
+          return PersonType.SdkServiceAccount;
     }
 
     return undefined;
@@ -1923,25 +3249,7 @@ export class RolloutStrategyTypeTransformer {
 public static toJson(__val: RolloutStrategy): any {
     const __data: any = {};
     
-  // inherited fields from BaseRolloutStrategy
-  
-  if (__val.id !== null && __val.id !== undefined) {
-    __data['id'] = __val.id;
-  }
-  if (__val.percentage !== null && __val.percentage !== undefined) {
-    __data['percentage'] = __val.percentage;
-  }
-  if (__val.percentageAttributes !== null && __val.percentageAttributes !== undefined) {
-    __data['percentageAttributes'] = __val.percentageAttributes;
-  }
-  if (__val.value !== null && __val.value !== undefined) {
-    __data['value'] = __val.value;
-  }
-  if (__val.attributes !== null && __val.attributes !== undefined) {
-    __data['attributes'] = ObjectSerializer.serialize(__val.attributes, 'Array<BaseRolloutStrategyAttribute>');
-  }
-
-  // inherited fields from RolloutStrategyAllOf
+  // inherited fields from BaseUIStrategy
   
   if (__val.name !== null && __val.name !== undefined) {
     __data['name'] = __val.name;
@@ -1949,11 +3257,38 @@ public static toJson(__val: RolloutStrategy): any {
   if (__val.colouring !== null && __val.colouring !== undefined) {
     __data['colouring'] = __val.colouring;
   }
+  if (__val.disabled !== null && __val.disabled !== undefined) {
+    __data['disabled'] = __val.disabled;
+  }
   if (__val.avatar !== null && __val.avatar !== undefined) {
     __data['avatar'] = __val.avatar;
   }
+
+  
+  
+  // inherited fields from BaseStrategy
+  
+  if (__val.percentage !== null && __val.percentage !== undefined) {
+    __data['percentage'] = __val.percentage;
+  }
+  if (__val.percentageAttributes !== null && __val.percentageAttributes !== undefined) {
+    __data['percentageAttributes'] = __val.percentageAttributes;
+  }
   if (__val.attributes !== null && __val.attributes !== undefined) {
     __data['attributes'] = ObjectSerializer.serialize(__val.attributes, 'Array<RolloutStrategyAttribute>');
+  }
+
+  // inherited fields from BaseRolloutStrategyAllOf
+  
+  if (__val.value !== null && __val.value !== undefined) {
+    __data['value'] = __val.value;
+  }
+
+
+  // inherited fields from RolloutStrategyAllOf
+  
+  if (__val.id !== null && __val.id !== undefined) {
+    __data['id'] = __val.id;
   }
 
 
@@ -1963,24 +3298,39 @@ public static toJson(__val: RolloutStrategy): any {
 public  static fromJsonAsAny(__val: any): any {
     const __init: any = {};
     
-  // inherited fields from BaseRolloutStrategy
-      __init['id'] = __val['id'];
-    __init['percentage'] = __val['percentage'];
+  // inherited fields from BaseUIStrategy
+      __init['name'] = __val['name'];
+    __init['colouring'] = __val['colouring'];
+    __init['disabled'] = __val['disabled'];
+    __init['avatar'] = __val['avatar'];
+
+
+  
+  
+  // inherited fields from BaseStrategy
+      __init['percentage'] = __val['percentage'];
     __init['percentageAttributes'] = __val['percentageAttributes'];
-    __init['value'] = __val['value'];
-    __init['attributes'] = ObjectSerializer.deserialize(__val['attributes'], 'Array<BaseRolloutStrategyAttribute>');
+    __init['attributes'] = ObjectSerializer.deserialize(__val['attributes'], 'Array<RolloutStrategyAttribute>');
+
+
+  // inherited fields from BaseRolloutStrategyAllOf
+      __init['value'] = __val['value'];
+
 
 
   // inherited fields from RolloutStrategyAllOf
-      __init['name'] = __val['name'];
-    __init['colouring'] = __val['colouring'];
-    __init['avatar'] = __val['avatar'];
-    __init['attributes'] = ObjectSerializer.deserialize(__val['attributes'], 'Array<RolloutStrategyAttribute>');
+      __init['id'] = __val['id'];
 
 
     
       
   
+  
+    
+  
+  
+  
+
   
   
 
@@ -1995,102 +3345,6 @@ public   static fromJson(__val: any): RolloutStrategy {
 
 export class RolloutStrategyAllOfTypeTransformer {
 public static toJson(__val: RolloutStrategyAllOf): any {
-    const __data: any = {};
-    
-  if (__val.name !== null && __val.name !== undefined) {
-    __data['name'] = __val.name;
-  }
-  if (__val.colouring !== null && __val.colouring !== undefined) {
-    __data['colouring'] = __val.colouring;
-  }
-  if (__val.avatar !== null && __val.avatar !== undefined) {
-    __data['avatar'] = __val.avatar;
-  }
-  if (__val.attributes !== null && __val.attributes !== undefined) {
-    __data['attributes'] = ObjectSerializer.serialize(__val.attributes, 'Array<RolloutStrategyAttribute>');
-  }
-
-    return __data;
-  }
-
-public  static fromJsonAsAny(__val: any): any {
-    const __init: any = {};
-        __init['name'] = __val['name'];
-    __init['colouring'] = __val['colouring'];
-    __init['avatar'] = __val['avatar'];
-    __init['attributes'] = ObjectSerializer.deserialize(__val['attributes'], 'Array<RolloutStrategyAttribute>');
-
-    
-    
-
-    return __init;
-}
-  // expect this to be a decoded value
-public   static fromJson(__val: any): RolloutStrategyAllOf {
-    return new RolloutStrategyAllOf(RolloutStrategyAllOfTypeTransformer.fromJsonAsAny(__val));
-  }
-}
-
-export class RolloutStrategyAttributeTypeTransformer {
-public static toJson(__val: RolloutStrategyAttribute): any {
-    const __data: any = {};
-    
-  // inherited fields from BaseRolloutStrategyAttribute
-  
-  if (__val.conditional !== null && __val.conditional !== undefined) {
-    __data['conditional'] = ObjectSerializer.serialize(__val.conditional, 'RolloutStrategyAttributeConditional');
-  }
-  if (__val.fieldName !== null && __val.fieldName !== undefined) {
-    __data['fieldName'] = __val.fieldName;
-  }
-  if (__val.values !== null && __val.values !== undefined) {
-    __data['values'] = __val.values;
-  }
-  if (__val.type !== null && __val.type !== undefined) {
-    __data['type'] = ObjectSerializer.serialize(__val.type, 'RolloutStrategyFieldType');
-  }
-
-  // inherited fields from RolloutStrategyAttributeAllOf
-  
-  if (__val.id !== null && __val.id !== undefined) {
-    __data['id'] = __val.id;
-  }
-
-
-    return __data;
-  }
-
-public  static fromJsonAsAny(__val: any): any {
-    const __init: any = {};
-    
-  // inherited fields from BaseRolloutStrategyAttribute
-      __init['conditional'] = ObjectSerializer.deserialize(__val['conditional'], 'RolloutStrategyAttributeConditional');
-    __init['fieldName'] = __val['fieldName'];
-    __init['values'] = __val['values'];
-    __init['type'] = ObjectSerializer.deserialize(__val['type'], 'RolloutStrategyFieldType');
-
-
-  // inherited fields from RolloutStrategyAttributeAllOf
-      __init['id'] = __val['id'];
-
-
-    
-      
-  
-  
-  
-
-
-    return __init;
-}
-  // expect this to be a decoded value
-public   static fromJson(__val: any): RolloutStrategyAttribute {
-    return new RolloutStrategyAttribute(RolloutStrategyAttributeTypeTransformer.fromJsonAsAny(__val));
-  }
-}
-
-export class RolloutStrategyAttributeAllOfTypeTransformer {
-public static toJson(__val: RolloutStrategyAttributeAllOf): any {
     const __data: any = {};
     
   if (__val.id !== null && __val.id !== undefined) {
@@ -2110,8 +3364,50 @@ public  static fromJsonAsAny(__val: any): any {
     return __init;
 }
   // expect this to be a decoded value
-public   static fromJson(__val: any): RolloutStrategyAttributeAllOf {
-    return new RolloutStrategyAttributeAllOf(RolloutStrategyAttributeAllOfTypeTransformer.fromJsonAsAny(__val));
+public   static fromJson(__val: any): RolloutStrategyAllOf {
+    return new RolloutStrategyAllOf(RolloutStrategyAllOfTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class RolloutStrategyAttributeTypeTransformer {
+public static toJson(__val: RolloutStrategyAttribute): any {
+    const __data: any = {};
+    
+  if (__val.id !== null && __val.id !== undefined) {
+    __data['id'] = __val.id;
+  }
+  if (__val.conditional !== null && __val.conditional !== undefined) {
+    __data['conditional'] = ObjectSerializer.serialize(__val.conditional, 'RolloutStrategyAttributeConditional');
+  }
+  if (__val.fieldName !== null && __val.fieldName !== undefined) {
+    __data['fieldName'] = __val.fieldName;
+  }
+  if (__val.values !== null && __val.values !== undefined) {
+    __data['values'] = __val.values;
+  }
+  if (__val.type !== null && __val.type !== undefined) {
+    __data['type'] = ObjectSerializer.serialize(__val.type, 'RolloutStrategyFieldType');
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['id'] = __val['id'];
+    __init['conditional'] = ObjectSerializer.deserialize(__val['conditional'], 'RolloutStrategyAttributeConditional');
+    __init['fieldName'] = __val['fieldName'];
+    __init['values'] = __val['values'];
+    __init['type'] = ObjectSerializer.deserialize(__val['type'], 'RolloutStrategyFieldType');
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): RolloutStrategyAttribute {
+    return new RolloutStrategyAttribute(RolloutStrategyAttributeTypeTransformer.fromJsonAsAny(__val));
   }
 }
 
@@ -2197,40 +3493,6 @@ public   static fromJson(__val: any): RolloutStrategyFieldType {
     }
 
     return undefined;
-  }
-}
-
-export class RolloutStrategyInfoTypeTransformer {
-public static toJson(__val: RolloutStrategyInfo): any {
-    const __data: any = {};
-    
-  if (__val.rolloutStrategy !== null && __val.rolloutStrategy !== undefined) {
-    __data['rolloutStrategy'] = ObjectSerializer.serialize(__val.rolloutStrategy, 'RolloutStrategy');
-  }
-  if (__val.whenArchived !== null && __val.whenArchived !== undefined) {
-    __data['whenArchived'] = ObjectSerializer.serialize(__val.whenArchived, 'date-time');
-  }
-  if (__val.changedBy !== null && __val.changedBy !== undefined) {
-    __data['changedBy'] = ObjectSerializer.serialize(__val.changedBy, 'Person');
-  }
-
-    return __data;
-  }
-
-public  static fromJsonAsAny(__val: any): any {
-    const __init: any = {};
-        __init['rolloutStrategy'] = ObjectSerializer.deserialize(__val['rolloutStrategy'], 'RolloutStrategy');
-    __init['whenArchived'] = ObjectSerializer.deserialize(__val['whenArchived'], 'date-time');
-    __init['changedBy'] = ObjectSerializer.deserialize(__val['changedBy'], 'Person');
-
-    
-    
-
-    return __init;
-}
-  // expect this to be a decoded value
-public   static fromJson(__val: any): RolloutStrategyInfo {
-    return new RolloutStrategyInfo(RolloutStrategyInfoTypeTransformer.fromJsonAsAny(__val));
   }
 }
 
@@ -2641,6 +3903,15 @@ public static toJson(__val: SetupMissingResponse): any {
   if (__val.providers !== null && __val.providers !== undefined) {
     __data['providers'] = __val.providers;
   }
+  if (__val.capabilityInfo !== null && __val.capabilityInfo !== undefined) {
+    const __p: any = {};
+    for(let __prop in __val.capabilityInfo) {
+    if (__val.capabilityInfo.hasOwnProperty(__prop)) {
+    __p[ObjectSerializer.serialize(__prop, 'string')] = __val.capabilityInfo[__prop];
+    }
+    __data['capabilityInfo'] = __p;
+    }
+  }
   if (__val.providerInfo !== null && __val.providerInfo !== undefined) {
     const __p: any = {};
     for(let __prop in __val.providerInfo) {
@@ -2659,7 +3930,18 @@ public  static fromJsonAsAny(__val: any): any {
         __init['providers'] = __val['providers'];
 
     
-      if (__val['providerInfo']) {
+      if (__val['capabilityInfo']) {
+    const __data: any = {};
+    const __valData = __val['capabilityInfo'];
+    for(let __prop in __valData) {
+      if (__valData.hasOwnProperty(__prop)) {
+        __data[ObjectSerializer.deserialize(__prop, 'string')] = __val[__prop];
+      }
+    }
+
+    __init['capabilityInfo'] = __data;
+  }
+  if (__val['providerInfo']) {
     const __data: any = {};
     const __valData = __val['providerInfo'];
     for(let __prop in __valData) {
@@ -3335,6 +4617,36 @@ public   static fromJson(__val: any): StrategyAttributeWellKnownNames {
   }
 }
 
+export class ThinGroupRolloutStrategyTypeTransformer {
+public static toJson(__val: ThinGroupRolloutStrategy): any {
+    const __data: any = {};
+    
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.value !== null && __val.value !== undefined) {
+    __data['value'] = __val.value;
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['name'] = __val['name'];
+    __init['value'] = __val['value'];
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): ThinGroupRolloutStrategy {
+    return new ThinGroupRolloutStrategy(ThinGroupRolloutStrategyTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
 export class TokenizedPersonTypeTransformer {
 public static toJson(__val: TokenizedPerson): any {
     const __data: any = {};
@@ -3347,6 +4659,15 @@ public static toJson(__val: TokenizedPerson): any {
   }
   if (__val.redirectUrl !== null && __val.redirectUrl !== undefined) {
     __data['redirectUrl'] = __val.redirectUrl;
+  }
+  if (__val.capabilityInfo !== null && __val.capabilityInfo !== undefined) {
+    const __p: any = {};
+    for(let __prop in __val.capabilityInfo) {
+    if (__val.capabilityInfo.hasOwnProperty(__prop)) {
+    __p[ObjectSerializer.serialize(__prop, 'string')] = __val.capabilityInfo[__prop];
+    }
+    __data['capabilityInfo'] = __p;
+    }
   }
   if (__val.person !== null && __val.person !== undefined) {
     __data['person'] = ObjectSerializer.serialize(__val.person, 'Person');
@@ -3363,13 +4684,66 @@ public  static fromJsonAsAny(__val: any): any {
     __init['person'] = ObjectSerializer.deserialize(__val['person'], 'Person');
 
     
-    
+      if (__val['capabilityInfo']) {
+    const __data: any = {};
+    const __valData = __val['capabilityInfo'];
+    for(let __prop in __valData) {
+      if (__valData.hasOwnProperty(__prop)) {
+        __data[ObjectSerializer.deserialize(__prop, 'string')] = __val[__prop];
+      }
+    }
+
+    __init['capabilityInfo'] = __data;
+  }
+
 
     return __init;
 }
   // expect this to be a decoded value
 public   static fromJson(__val: any): TokenizedPerson {
     return new TokenizedPerson(TokenizedPersonTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class UpdateApplicationRolloutStrategyTypeTransformer {
+public static toJson(__val: UpdateApplicationRolloutStrategy): any {
+    const __data: any = {};
+    
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.colouring !== null && __val.colouring !== undefined) {
+    __data['colouring'] = __val.colouring;
+  }
+  if (__val.avatar !== null && __val.avatar !== undefined) {
+    __data['avatar'] = __val.avatar;
+  }
+  if (__val.disabled !== null && __val.disabled !== undefined) {
+    __data['disabled'] = __val.disabled;
+  }
+  if (__val.attributes !== null && __val.attributes !== undefined) {
+    __data['attributes'] = ObjectSerializer.serialize(__val.attributes, 'Array<RolloutStrategyAttribute>');
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['name'] = __val['name'];
+    __init['colouring'] = __val['colouring'];
+    __init['avatar'] = __val['avatar'];
+    __init['disabled'] = __val['disabled'];
+    __init['attributes'] = ObjectSerializer.deserialize(__val['attributes'], 'Array<RolloutStrategyAttribute>');
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): UpdateApplicationRolloutStrategy {
+    return new UpdateApplicationRolloutStrategy(UpdateApplicationRolloutStrategyTypeTransformer.fromJsonAsAny(__val));
   }
 }
 
@@ -3396,6 +4770,15 @@ public static toJson(__val: UpdateEnvironment): any {
     __p[ObjectSerializer.serialize(__prop, 'string')] = __val.environmentInfo[__prop];
     }
     __data['environmentInfo'] = __p;
+    }
+  }
+  if (__val.webhookEnvironmentInfo !== null && __val.webhookEnvironmentInfo !== undefined) {
+    const __p: any = {};
+    for(let __prop in __val.webhookEnvironmentInfo) {
+    if (__val.webhookEnvironmentInfo.hasOwnProperty(__prop)) {
+    __p[ObjectSerializer.serialize(__prop, 'string')] = __val.webhookEnvironmentInfo[__prop];
+    }
+    __data['webhookEnvironmentInfo'] = __p;
     }
   }
   if (__val.priorEnvironmentId !== null && __val.priorEnvironmentId !== undefined) {
@@ -3425,6 +4808,17 @@ public  static fromJsonAsAny(__val: any): any {
 
     __init['environmentInfo'] = __data;
   }
+  if (__val['webhookEnvironmentInfo']) {
+    const __data: any = {};
+    const __valData = __val['webhookEnvironmentInfo'];
+    for(let __prop in __valData) {
+      if (__valData.hasOwnProperty(__prop)) {
+        __data[ObjectSerializer.deserialize(__prop, 'string')] = __val[__prop];
+      }
+    }
+
+    __init['webhookEnvironmentInfo'] = __data;
+  }
 
 
     return __init;
@@ -3432,6 +4826,134 @@ public  static fromJsonAsAny(__val: any): any {
   // expect this to be a decoded value
 public   static fromJson(__val: any): UpdateEnvironment {
     return new UpdateEnvironment(UpdateEnvironmentTypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class UpdateEnvironmentV2TypeTransformer {
+public static toJson(__val: UpdateEnvironmentV2): any {
+    const __data: any = {};
+    
+  // inherited fields from UpdateEnvironment
+  
+  if (__val.version !== null && __val.version !== undefined) {
+    __data['version'] = __val.version;
+  }
+  if (__val.name !== null && __val.name !== undefined) {
+    __data['name'] = __val.name;
+  }
+  if (__val.description !== null && __val.description !== undefined) {
+    __data['description'] = __val.description;
+  }
+  if (__val.production !== null && __val.production !== undefined) {
+    __data['production'] = __val.production;
+  }
+  if (__val.environmentInfo !== null && __val.environmentInfo !== undefined) {
+    const __p: any = {};
+    for(let __prop in __val.environmentInfo) {
+    if (__val.environmentInfo.hasOwnProperty(__prop)) {
+    __p[ObjectSerializer.serialize(__prop, 'string')] = __val.environmentInfo[__prop];
+    }
+    __data['environmentInfo'] = __p;
+    }
+  }
+  if (__val.webhookEnvironmentInfo !== null && __val.webhookEnvironmentInfo !== undefined) {
+    const __p: any = {};
+    for(let __prop in __val.webhookEnvironmentInfo) {
+    if (__val.webhookEnvironmentInfo.hasOwnProperty(__prop)) {
+    __p[ObjectSerializer.serialize(__prop, 'string')] = __val.webhookEnvironmentInfo[__prop];
+    }
+    __data['webhookEnvironmentInfo'] = __p;
+    }
+  }
+  if (__val.priorEnvironmentId !== null && __val.priorEnvironmentId !== undefined) {
+    __data['priorEnvironmentId'] = __val.priorEnvironmentId;
+  }
+
+  // inherited fields from UpdateEnvironmentV2AllOf
+  
+  if (__val.id !== null && __val.id !== undefined) {
+    __data['id'] = __val.id;
+  }
+
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+    
+  // inherited fields from UpdateEnvironment
+      __init['version'] = __val['version'];
+    __init['name'] = __val['name'];
+    __init['description'] = __val['description'];
+    __init['production'] = __val['production'];
+    __init['priorEnvironmentId'] = __val['priorEnvironmentId'];
+
+
+  // inherited fields from UpdateEnvironmentV2AllOf
+      __init['id'] = __val['id'];
+
+
+    
+      // inherited fields from UpdateEnvironment
+    if (__val['environmentInfo']) {
+    const __data: any = {};
+    const __valData = __val['environmentInfo'];
+    for(let __prop in __valData) {
+      if (__valData.hasOwnProperty(__prop)) {
+        __data[ObjectSerializer.deserialize(__prop, 'string')] = __val[__prop];
+      }
+    }
+
+    __init['environmentInfo'] = __data;
+  }
+  if (__val['webhookEnvironmentInfo']) {
+    const __data: any = {};
+    const __valData = __val['webhookEnvironmentInfo'];
+    for(let __prop in __valData) {
+      if (__valData.hasOwnProperty(__prop)) {
+        __data[ObjectSerializer.deserialize(__prop, 'string')] = __val[__prop];
+      }
+    }
+
+    __init['webhookEnvironmentInfo'] = __data;
+  }
+
+  
+  
+
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): UpdateEnvironmentV2 {
+    return new UpdateEnvironmentV2(UpdateEnvironmentV2TypeTransformer.fromJsonAsAny(__val));
+  }
+}
+
+export class UpdateEnvironmentV2AllOfTypeTransformer {
+public static toJson(__val: UpdateEnvironmentV2AllOf): any {
+    const __data: any = {};
+    
+  if (__val.id !== null && __val.id !== undefined) {
+    __data['id'] = __val.id;
+  }
+
+    return __data;
+  }
+
+public  static fromJsonAsAny(__val: any): any {
+    const __init: any = {};
+        __init['id'] = __val['id'];
+
+    
+    
+
+    return __init;
+}
+  // expect this to be a decoded value
+public   static fromJson(__val: any): UpdateEnvironmentV2AllOf {
+    return new UpdateEnvironmentV2AllOf(UpdateEnvironmentV2AllOfTypeTransformer.fromJsonAsAny(__val));
   }
 }
 
@@ -3830,29 +5352,59 @@ export const serializers: Record<string, EncoderFunc> = {
   'Date': _dateEncoder,
   'DateTime': (t, value) => (value as Date).toISOString(),
   'AdminServiceResetTokenResponse': (t, value) => AdminServiceResetTokenResponseTypeTransformer.toJson(value),
+  'AnemicPerson': (t, value) => AnemicPersonTypeTransformer.toJson(value),
   'Application': (t, value) => ApplicationTypeTransformer.toJson(value),
   'ApplicationAllOf': (t, value) => ApplicationAllOfTypeTransformer.toJson(value),
   'ApplicationFeatureValues': (t, value) => ApplicationFeatureValuesTypeTransformer.toJson(value),
   'ApplicationGroupRole': (t, value) => ApplicationGroupRoleTypeTransformer.toJson(value),
+  'ApplicationPermissions': (t, value) => ApplicationPermissionsTypeTransformer.toJson(value),
   'ApplicationRoleType': (t, value) => ApplicationRoleTypeTypeTransformer.toJson(value),
+  'ApplicationRolloutStrategy': (t, value) => ApplicationRolloutStrategyTypeTransformer.toJson(value),
+  'ApplicationRolloutStrategyAllOf': (t, value) => ApplicationRolloutStrategyAllOfTypeTransformer.toJson(value),
+  'ApplicationRolloutStrategyList': (t, value) => ApplicationRolloutStrategyListTypeTransformer.toJson(value),
+  'ApplicationSummary': (t, value) => ApplicationSummaryTypeTransformer.toJson(value),
   'ApplicationVersionInfo': (t, value) => ApplicationVersionInfoTypeTransformer.toJson(value),
   'Audit': (t, value) => AuditTypeTransformer.toJson(value),
   'BaseRolloutStrategy': (t, value) => BaseRolloutStrategyTypeTransformer.toJson(value),
-  'BaseRolloutStrategyAttribute': (t, value) => BaseRolloutStrategyAttributeTypeTransformer.toJson(value),
+  'BaseRolloutStrategyAllOf': (t, value) => BaseRolloutStrategyAllOfTypeTransformer.toJson(value),
+  'BaseStrategy': (t, value) => BaseStrategyTypeTransformer.toJson(value),
+  'BaseUIStrategy': (t, value) => BaseUIStrategyTypeTransformer.toJson(value),
+  'CacheRefreshRequest': (t, value) => CacheRefreshRequestTypeTransformer.toJson(value),
+  'CacheRefreshResponse': (t, value) => CacheRefreshResponseTypeTransformer.toJson(value),
+  'CreateApplication': (t, value) => CreateApplicationTypeTransformer.toJson(value),
+  'CreateApplicationRolloutStrategy': (t, value) => CreateApplicationRolloutStrategyTypeTransformer.toJson(value),
+  'CreateEnvironment': (t, value) => CreateEnvironmentTypeTransformer.toJson(value),
+  'CreateFeature': (t, value) => CreateFeatureTypeTransformer.toJson(value),
+  'CreateGroup': (t, value) => CreateGroupTypeTransformer.toJson(value),
   'CreatePersonDetails': (t, value) => CreatePersonDetailsTypeTransformer.toJson(value),
+  'CreatePortfolio': (t, value) => CreatePortfolioTypeTransformer.toJson(value),
+  'CreateServiceAccount': (t, value) => CreateServiceAccountTypeTransformer.toJson(value),
   'CustomRolloutStrategyViolation': (t, value) => CustomRolloutStrategyViolationTypeTransformer.toJson(value),
   'Environment': (t, value) => EnvironmentTypeTransformer.toJson(value),
   'EnvironmentAllOf': (t, value) => EnvironmentAllOfTypeTransformer.toJson(value),
   'EnvironmentFeatureValues': (t, value) => EnvironmentFeatureValuesTypeTransformer.toJson(value),
   'EnvironmentFeaturesResult': (t, value) => EnvironmentFeaturesResultTypeTransformer.toJson(value),
   'EnvironmentGroupRole': (t, value) => EnvironmentGroupRoleTypeTransformer.toJson(value),
+  'EnvironmentPermission': (t, value) => EnvironmentPermissionTypeTransformer.toJson(value),
   'EnvironmentSortOrder': (t, value) => EnvironmentSortOrderTypeTransformer.toJson(value),
   'Feature': (t, value) => FeatureTypeTransformer.toJson(value),
   'FeatureEnvironment': (t, value) => FeatureEnvironmentTypeTransformer.toJson(value),
+  'FeatureGroup': (t, value) => FeatureGroupTypeTransformer.toJson(value),
+  'FeatureGroupCreate': (t, value) => FeatureGroupCreateTypeTransformer.toJson(value),
+  'FeatureGroupFeature': (t, value) => FeatureGroupFeatureTypeTransformer.toJson(value),
+  'FeatureGroupList': (t, value) => FeatureGroupListTypeTransformer.toJson(value),
+  'FeatureGroupListFeature': (t, value) => FeatureGroupListFeatureTypeTransformer.toJson(value),
+  'FeatureGroupListGroup': (t, value) => FeatureGroupListGroupTypeTransformer.toJson(value),
+  'FeatureGroupUpdate': (t, value) => FeatureGroupUpdateTypeTransformer.toJson(value),
+  'FeatureGroupUpdateFeature': (t, value) => FeatureGroupUpdateFeatureTypeTransformer.toJson(value),
+  'FeatureHistoryItem': (t, value) => FeatureHistoryItemTypeTransformer.toJson(value),
+  'FeatureHistoryList': (t, value) => FeatureHistoryListTypeTransformer.toJson(value),
+  'FeatureHistoryValue': (t, value) => FeatureHistoryValueTypeTransformer.toJson(value),
   'FeatureValue': (t, value) => FeatureValueTypeTransformer.toJson(value),
   'FeatureValueType': (t, value) => FeatureValueTypeTypeTransformer.toJson(value),
   'Group': (t, value) => GroupTypeTransformer.toJson(value),
   'GroupAllOf': (t, value) => GroupAllOfTypeTransformer.toJson(value),
+  'GroupRolloutStrategy': (t, value) => GroupRolloutStrategyTypeTransformer.toJson(value),
   'HiddenEnvironments': (t, value) => HiddenEnvironmentsTypeTransformer.toJson(value),
   'IdentityProviderInfo': (t, value) => IdentityProviderInfoTypeTransformer.toJson(value),
   'Organization': (t, value) => OrganizationTypeTransformer.toJson(value),
@@ -3874,11 +5426,9 @@ export const serializers: Record<string, EncoderFunc> = {
   'RolloutStrategy': (t, value) => RolloutStrategyTypeTransformer.toJson(value),
   'RolloutStrategyAllOf': (t, value) => RolloutStrategyAllOfTypeTransformer.toJson(value),
   'RolloutStrategyAttribute': (t, value) => RolloutStrategyAttributeTypeTransformer.toJson(value),
-  'RolloutStrategyAttributeAllOf': (t, value) => RolloutStrategyAttributeAllOfTypeTransformer.toJson(value),
   'RolloutStrategyAttributeConditional': (t, value) => RolloutStrategyAttributeConditionalTypeTransformer.toJson(value),
   'RolloutStrategyCollectionViolationType': (t, value) => RolloutStrategyCollectionViolationTypeTypeTransformer.toJson(value),
   'RolloutStrategyFieldType': (t, value) => RolloutStrategyFieldTypeTypeTransformer.toJson(value),
-  'RolloutStrategyInfo': (t, value) => RolloutStrategyInfoTypeTransformer.toJson(value),
   'RolloutStrategyInstance': (t, value) => RolloutStrategyInstanceTypeTransformer.toJson(value),
   'RolloutStrategyValidationRequest': (t, value) => RolloutStrategyValidationRequestTypeTransformer.toJson(value),
   'RolloutStrategyValidationResponse': (t, value) => RolloutStrategyValidationResponseTypeTransformer.toJson(value),
@@ -3898,8 +5448,12 @@ export const serializers: Record<string, EncoderFunc> = {
   'StrategyAttributeDeviceName': (t, value) => StrategyAttributeDeviceNameTypeTransformer.toJson(value),
   'StrategyAttributePlatformName': (t, value) => StrategyAttributePlatformNameTypeTransformer.toJson(value),
   'StrategyAttributeWellKnownNames': (t, value) => StrategyAttributeWellKnownNamesTypeTransformer.toJson(value),
+  'ThinGroupRolloutStrategy': (t, value) => ThinGroupRolloutStrategyTypeTransformer.toJson(value),
   'TokenizedPerson': (t, value) => TokenizedPersonTypeTransformer.toJson(value),
+  'UpdateApplicationRolloutStrategy': (t, value) => UpdateApplicationRolloutStrategyTypeTransformer.toJson(value),
   'UpdateEnvironment': (t, value) => UpdateEnvironmentTypeTransformer.toJson(value),
+  'UpdateEnvironmentV2': (t, value) => UpdateEnvironmentV2TypeTransformer.toJson(value),
+  'UpdateEnvironmentV2AllOf': (t, value) => UpdateEnvironmentV2AllOfTypeTransformer.toJson(value),
   'UpdatePerson': (t, value) => UpdatePersonTypeTransformer.toJson(value),
   'UserCredentials': (t, value) => UserCredentialsTypeTransformer.toJson(value),
   'WebhookCheck': (t, value) => WebhookCheckTypeTransformer.toJson(value),
@@ -3936,29 +5490,59 @@ export const deserializers: Record<string, EncoderFunc> = {
   'Date': _dateDecoder,
   'DateTime': _dateTimeDecoder,
   'AdminServiceResetTokenResponse': (t, value) => AdminServiceResetTokenResponseTypeTransformer.fromJson(value),
+  'AnemicPerson': (t, value) => AnemicPersonTypeTransformer.fromJson(value),
   'Application': (t, value) => ApplicationTypeTransformer.fromJson(value),
   'ApplicationAllOf': (t, value) => ApplicationAllOfTypeTransformer.fromJson(value),
   'ApplicationFeatureValues': (t, value) => ApplicationFeatureValuesTypeTransformer.fromJson(value),
   'ApplicationGroupRole': (t, value) => ApplicationGroupRoleTypeTransformer.fromJson(value),
+  'ApplicationPermissions': (t, value) => ApplicationPermissionsTypeTransformer.fromJson(value),
   'ApplicationRoleType': (t, value) => ApplicationRoleTypeTypeTransformer.fromJson(value),
+  'ApplicationRolloutStrategy': (t, value) => ApplicationRolloutStrategyTypeTransformer.fromJson(value),
+  'ApplicationRolloutStrategyAllOf': (t, value) => ApplicationRolloutStrategyAllOfTypeTransformer.fromJson(value),
+  'ApplicationRolloutStrategyList': (t, value) => ApplicationRolloutStrategyListTypeTransformer.fromJson(value),
+  'ApplicationSummary': (t, value) => ApplicationSummaryTypeTransformer.fromJson(value),
   'ApplicationVersionInfo': (t, value) => ApplicationVersionInfoTypeTransformer.fromJson(value),
   'Audit': (t, value) => AuditTypeTransformer.fromJson(value),
   'BaseRolloutStrategy': (t, value) => BaseRolloutStrategyTypeTransformer.fromJson(value),
-  'BaseRolloutStrategyAttribute': (t, value) => BaseRolloutStrategyAttributeTypeTransformer.fromJson(value),
+  'BaseRolloutStrategyAllOf': (t, value) => BaseRolloutStrategyAllOfTypeTransformer.fromJson(value),
+  'BaseStrategy': (t, value) => BaseStrategyTypeTransformer.fromJson(value),
+  'BaseUIStrategy': (t, value) => BaseUIStrategyTypeTransformer.fromJson(value),
+  'CacheRefreshRequest': (t, value) => CacheRefreshRequestTypeTransformer.fromJson(value),
+  'CacheRefreshResponse': (t, value) => CacheRefreshResponseTypeTransformer.fromJson(value),
+  'CreateApplication': (t, value) => CreateApplicationTypeTransformer.fromJson(value),
+  'CreateApplicationRolloutStrategy': (t, value) => CreateApplicationRolloutStrategyTypeTransformer.fromJson(value),
+  'CreateEnvironment': (t, value) => CreateEnvironmentTypeTransformer.fromJson(value),
+  'CreateFeature': (t, value) => CreateFeatureTypeTransformer.fromJson(value),
+  'CreateGroup': (t, value) => CreateGroupTypeTransformer.fromJson(value),
   'CreatePersonDetails': (t, value) => CreatePersonDetailsTypeTransformer.fromJson(value),
+  'CreatePortfolio': (t, value) => CreatePortfolioTypeTransformer.fromJson(value),
+  'CreateServiceAccount': (t, value) => CreateServiceAccountTypeTransformer.fromJson(value),
   'CustomRolloutStrategyViolation': (t, value) => CustomRolloutStrategyViolationTypeTransformer.fromJson(value),
   'Environment': (t, value) => EnvironmentTypeTransformer.fromJson(value),
   'EnvironmentAllOf': (t, value) => EnvironmentAllOfTypeTransformer.fromJson(value),
   'EnvironmentFeatureValues': (t, value) => EnvironmentFeatureValuesTypeTransformer.fromJson(value),
   'EnvironmentFeaturesResult': (t, value) => EnvironmentFeaturesResultTypeTransformer.fromJson(value),
   'EnvironmentGroupRole': (t, value) => EnvironmentGroupRoleTypeTransformer.fromJson(value),
+  'EnvironmentPermission': (t, value) => EnvironmentPermissionTypeTransformer.fromJson(value),
   'EnvironmentSortOrder': (t, value) => EnvironmentSortOrderTypeTransformer.fromJson(value),
   'Feature': (t, value) => FeatureTypeTransformer.fromJson(value),
   'FeatureEnvironment': (t, value) => FeatureEnvironmentTypeTransformer.fromJson(value),
+  'FeatureGroup': (t, value) => FeatureGroupTypeTransformer.fromJson(value),
+  'FeatureGroupCreate': (t, value) => FeatureGroupCreateTypeTransformer.fromJson(value),
+  'FeatureGroupFeature': (t, value) => FeatureGroupFeatureTypeTransformer.fromJson(value),
+  'FeatureGroupList': (t, value) => FeatureGroupListTypeTransformer.fromJson(value),
+  'FeatureGroupListFeature': (t, value) => FeatureGroupListFeatureTypeTransformer.fromJson(value),
+  'FeatureGroupListGroup': (t, value) => FeatureGroupListGroupTypeTransformer.fromJson(value),
+  'FeatureGroupUpdate': (t, value) => FeatureGroupUpdateTypeTransformer.fromJson(value),
+  'FeatureGroupUpdateFeature': (t, value) => FeatureGroupUpdateFeatureTypeTransformer.fromJson(value),
+  'FeatureHistoryItem': (t, value) => FeatureHistoryItemTypeTransformer.fromJson(value),
+  'FeatureHistoryList': (t, value) => FeatureHistoryListTypeTransformer.fromJson(value),
+  'FeatureHistoryValue': (t, value) => FeatureHistoryValueTypeTransformer.fromJson(value),
   'FeatureValue': (t, value) => FeatureValueTypeTransformer.fromJson(value),
   'FeatureValueType': (t, value) => FeatureValueTypeTypeTransformer.fromJson(value),
   'Group': (t, value) => GroupTypeTransformer.fromJson(value),
   'GroupAllOf': (t, value) => GroupAllOfTypeTransformer.fromJson(value),
+  'GroupRolloutStrategy': (t, value) => GroupRolloutStrategyTypeTransformer.fromJson(value),
   'HiddenEnvironments': (t, value) => HiddenEnvironmentsTypeTransformer.fromJson(value),
   'IdentityProviderInfo': (t, value) => IdentityProviderInfoTypeTransformer.fromJson(value),
   'Organization': (t, value) => OrganizationTypeTransformer.fromJson(value),
@@ -3980,11 +5564,9 @@ export const deserializers: Record<string, EncoderFunc> = {
   'RolloutStrategy': (t, value) => RolloutStrategyTypeTransformer.fromJson(value),
   'RolloutStrategyAllOf': (t, value) => RolloutStrategyAllOfTypeTransformer.fromJson(value),
   'RolloutStrategyAttribute': (t, value) => RolloutStrategyAttributeTypeTransformer.fromJson(value),
-  'RolloutStrategyAttributeAllOf': (t, value) => RolloutStrategyAttributeAllOfTypeTransformer.fromJson(value),
   'RolloutStrategyAttributeConditional': (t, value) => RolloutStrategyAttributeConditionalTypeTransformer.fromJson(value),
   'RolloutStrategyCollectionViolationType': (t, value) => RolloutStrategyCollectionViolationTypeTypeTransformer.fromJson(value),
   'RolloutStrategyFieldType': (t, value) => RolloutStrategyFieldTypeTypeTransformer.fromJson(value),
-  'RolloutStrategyInfo': (t, value) => RolloutStrategyInfoTypeTransformer.fromJson(value),
   'RolloutStrategyInstance': (t, value) => RolloutStrategyInstanceTypeTransformer.fromJson(value),
   'RolloutStrategyValidationRequest': (t, value) => RolloutStrategyValidationRequestTypeTransformer.fromJson(value),
   'RolloutStrategyValidationResponse': (t, value) => RolloutStrategyValidationResponseTypeTransformer.fromJson(value),
@@ -4004,8 +5586,12 @@ export const deserializers: Record<string, EncoderFunc> = {
   'StrategyAttributeDeviceName': (t, value) => StrategyAttributeDeviceNameTypeTransformer.fromJson(value),
   'StrategyAttributePlatformName': (t, value) => StrategyAttributePlatformNameTypeTransformer.fromJson(value),
   'StrategyAttributeWellKnownNames': (t, value) => StrategyAttributeWellKnownNamesTypeTransformer.fromJson(value),
+  'ThinGroupRolloutStrategy': (t, value) => ThinGroupRolloutStrategyTypeTransformer.fromJson(value),
   'TokenizedPerson': (t, value) => TokenizedPersonTypeTransformer.fromJson(value),
+  'UpdateApplicationRolloutStrategy': (t, value) => UpdateApplicationRolloutStrategyTypeTransformer.fromJson(value),
   'UpdateEnvironment': (t, value) => UpdateEnvironmentTypeTransformer.fromJson(value),
+  'UpdateEnvironmentV2': (t, value) => UpdateEnvironmentV2TypeTransformer.fromJson(value),
+  'UpdateEnvironmentV2AllOf': (t, value) => UpdateEnvironmentV2AllOfTypeTransformer.fromJson(value),
   'UpdatePerson': (t, value) => UpdatePersonTypeTransformer.fromJson(value),
   'UserCredentials': (t, value) => UserCredentialsTypeTransformer.fromJson(value),
   'WebhookCheck': (t, value) => WebhookCheckTypeTransformer.fromJson(value),
