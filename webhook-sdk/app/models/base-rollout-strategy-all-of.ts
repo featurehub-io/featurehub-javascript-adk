@@ -13,4 +13,19 @@
  */
 
 
-export * from './models';
+
+/**
+ * 
+ * @export
+ * @interface BaseRolloutStrategyAllOf
+ */
+export interface BaseRolloutStrategyAllOf {
+    /**
+     * when we attach the RolloutStrategy for Dacha or SSE this lets us push the value out. Only visible in SDK and SSE Edge.
+     * @type {any}
+     * @memberof BaseRolloutStrategyAllOf
+     */
+    value?: any | null;
+}
+
+

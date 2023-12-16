@@ -2,8 +2,9 @@
 .npmignore
 git_push.sh
 index.ts
-models/base-rollout-strategy-attribute.ts
+models/base-rollout-strategy-all-of.ts
 models/base-rollout-strategy.ts
+models/base-strategy.ts
 models/cache-environment-feature.ts
 models/cache-environment.ts
 models/cache-feature-value.ts
@@ -17,4 +18,5 @@ models/index.ts
 models/publish-action.ts
 models/publish-environment.ts
 models/rollout-strategy-attribute-conditional.ts
+models/rollout-strategy-attribute.ts
 models/rollout-strategy-field-type.ts

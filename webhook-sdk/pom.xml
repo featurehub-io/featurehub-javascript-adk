@@ -63,7 +63,7 @@
               <generateApiTests>false</generateApiTests>
               <generateModelDocumentation>true</generateModelDocumentation>
               <generateSupportingFiles>true</generateSupportingFiles>
-              <inputSpec>http://api.dev.featurehub.io/webhooks/1.1.1.yaml</inputSpec>
+              <inputSpec>http://api.dev.featurehub.io/webhooks/1.2.1.yaml</inputSpec>
               <modelPackage>models</modelPackage>
               <apiPackage>api</apiPackage>
               <output>app</output>

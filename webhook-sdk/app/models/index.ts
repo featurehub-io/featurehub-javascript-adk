@@ -1,5 +1,6 @@
 export * from './base-rollout-strategy';
-export * from './base-rollout-strategy-attribute';
+export * from './base-rollout-strategy-all-of';
+export * from './base-strategy';
 export * from './cache-environment';
 export * from './cache-environment-feature';
 export * from './cache-feature';
@@ -11,5 +12,6 @@ export * from './enriched-features';
 export * from './feature-value-type';
 export * from './publish-action';
 export * from './publish-environment';
+export * from './rollout-strategy-attribute';
 export * from './rollout-strategy-attribute-conditional';
 export * from './rollout-strategy-field-type';
